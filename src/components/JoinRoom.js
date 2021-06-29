@@ -58,19 +58,19 @@ const JoinRoom = ({ currentRoom, setCurrentRoom }) => {
     <div className="JoinRoom">
       <div className="astuce">
         <motion.h3 variants={titleAnim} initial="hidden" animate="show">
-          Or join a party with a code
+          Ou rejoins le salon de ton ami !
         </motion.h3>
       </div>
       <textarea
         value={code}
         onChange={(e) => setCode(e.target.value)}
-        placeholder="Enter code"
+        placeholder="Entrer le code"
         maxLength="5"
         minLength="5"
       />
       <div className="buttons">
         <button onClick={handleSubmit} disabled={!code}>
-          Join
+          Rejoins
         </button>
       </div>
     </div>

@@ -8,38 +8,16 @@ import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 import TinderCard from 'react-tinder-card'
 
+import Heart from '../img/heart.png'
+import Cross from '../img/cross.png'
+
 const Room = ({ currentRoom, setMatchTitle, setMatchPicture }) => {
-  const filmRef = db.collection('films')
-  const [films] = useCollectionData(filmRef)
+  const restoRef = db.collection('restos')
+  const [restos] = useCollectionData(restoRef)
 
   const likedRef = db.collection('liked')
 
   const [lastDirection, setLastDirection] = useState()
-
-  const [error, setError] = useState(null)
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [items, setItems] = useState([])
-
-  useEffect(() => {
-    fetch(
-      'https://api.themoviedb.org/3/movie/top_rated?api_key=12b252191244406f6cdcec5e4ef65838&language=en-US&page=1',
-    )
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          console.log(result['results'])
-          setIsLoaded(true)
-          setItems(result['results'])
-        },
-        // Remarque : il faut gérer les erreurs ici plutôt que dans
-        // un bloc catch() afin que nous n’avalions pas les exceptions
-        // dues à de véritables bugs dans les composants.
-        (error) => {
-          setIsLoaded(true)
-          setError(error)
-        },
-      )
-  }, [])
 
   const onSwipe = (direction) => {
     console.log('You swiped: ' + direction)
@@ -88,30 +66,37 @@ const Room = ({ currentRoom, setMatchTitle, setMatchPicture }) => {
   return (
     <>
       <div className="cardContainer">
-        {items &&
-          items.map((item) => (
+        {restos &&
+          restos.map((resto) => (
             <TinderCard
               className="swipe"
-              key={item.title}
-              onSwipe={(dir) => swiped(dir, item.title, item.poster_path)}
-              onCardLeftScreen={() => outOfFrame(item.title)}
+              key={resto.titre}
+              onSwipe={(dir) => swiped(dir, resto.titre, resto.picture)}
+              onCardLeftScreen={() => outOfFrame(resto.titre)}
             >
               <div
-                style={{
-                  backgroundImage:
-                    'url(https://image.tmdb.org/t/p/w500/' +
-                    item.poster_path +
-                    ')',
-                }}
+                style={{ backgroundImage: 'url(' + resto.picture + ')' }}
                 className="card"
               >
-                <h3 className="titreFilm">{item.title}</h3>
+                <h3 className="titreresto">{resto.titre}</h3>
               </div>
             </TinderCard>
           ))}
       </div>
 
       <h3>Room Code : {currentRoom}</h3>
+      <div className="container">
+        <div className="left">
+          <button class="buttonLike">
+            <img src={Cross} className="logoCross" />
+          </button>
+        </div>
+        <div className="right">
+          <button class="buttonLike">
+            <img src={Heart} className="logoLike" />
+          </button>
+        </div>
+      </div>
     </>
   )
 }

@@ -9,9 +9,15 @@ import { useCollectionData } from 'react-firebase-hooks/firestore'
 import TinderCard from 'react-tinder-card'
 
 const Match = ({ matchTitle, matchPicture, currentRoom, setCurrentRoom }) => {
-  const handleLeave = (room) => {
+  const handleLeave = () => {
     const query = db.collection('liked').where('room', '==', currentRoom)
     query.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        doc.ref.delete()
+      })
+    })
+    const query2 = db.collection('room').where('room', '==', currentRoom)
+    query2.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         doc.ref.delete()
       })
@@ -20,13 +26,10 @@ const Match = ({ matchTitle, matchPicture, currentRoom, setCurrentRoom }) => {
   }
   return (
     <>
-      <h1>It's a match</h1>
+      <h1>Miam :</h1>
       <div
         className="cardMatch"
-        style={{
-          backgroundImage:
-            'url(https://image.tmdb.org/t/p/w500/' + matchPicture + ')',
-        }}
+        style={{ backgroundImage: 'url(' + matchPicture + ')' }}
       >
         <h3>{matchTitle}</h3>
       </div>

@@ -5,7 +5,7 @@
   width: 100vw;
   min-height: 100vh;
   overflow: hidden;
-  background: linear-gradient(rgb(5, 0, 0), rgb(24, 24, 24));
+  background: linear-gradient(rgb(9, 199, 63), rgb(70, 190, 96));
 }
 
 #root > div {
@@ -57,7 +57,6 @@ h3 {
   width: 80vw;
   max-width: 260px;
   height: 300px;
-  box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   background-size: cover;
   background-position: center;
@@ -120,7 +119,7 @@ h3 {
   border: none;
   color: #fff;
   font-size: 18px;
-  background-color: #9198e5;
+  background-color: #ef9b0f;
   transition: 200ms;
   margin: 0 10px;
   font-weight: bolder;
@@ -163,7 +162,8 @@ h3 {
 
 .titleLogo span {
   color: #efefef;
-  text-shadow: 0 0 0.15em purple;
+  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,
+    1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
 
 .titreFilm {
@@ -173,12 +173,12 @@ h3 {
 textarea {
   width: 160px;
   height: 30px;
-  border: 3px solid #9198e5;
-  font-size: 25px;
-  color: #9198e5;
+  border: 3px solid #ef9b0f;
+  font-size: 20px;
+  color: #ef9b0f;
   text-align: center;
   padding: 4px;
-  background-color: black;
+  background-color: white;
   background-position: bottom right;
   background-repeat: no-repeat;
   resize: none;
@@ -186,4 +186,39 @@ textarea {
 
 .astuce {
   width: 230px;
+}
+
+.container {
+  width: 100%;
+  
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  margin-left: 60%
+}
+
+.buttonLike {
+  background-color: whitesmoke;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 45%;
+  height: 85px;
+}
+
+.logoLike{
+  height: 40px;
+}
+
+.logoCross{
+  height: 50px;
 }

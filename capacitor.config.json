@@ -1,6 +1,6 @@
 {
-    "appId": "io.ionic.CineSwipe",
-    "appName": "CineSwipe",
+    "appId": "io.ionic.Eat",
+    "appName": "Eat",
     "bundledWebRuntime": false,
     "npmClient": "npm",
     "webDir": "build",

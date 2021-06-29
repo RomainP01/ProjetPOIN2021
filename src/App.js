@@ -8,6 +8,8 @@ import './App.css'
 import Match from './components/Match'
 import { motion } from 'framer-motion'
 import { titleAnim } from './animation'
+
+import Burger from './img/burger.png'
 const App = () => {
   const [currentRoom, setCurrentRoom] = useState(null)
   const [matchTitle, setMatchTitle] = useState(null)
@@ -15,19 +17,18 @@ const App = () => {
 
   return (
     <div className="app">
-      <motion.h1
-        initial={{ x: '-5vh' }}
-        animate={{ x: 0 }}
+      <motion.img
+        initial={{ y: '-5vh' }}
+        animate={{ y: 0 }}
         transition={{
           type: 'spring',
-          repeat: Infinity,
           duration: 4,
           bounce: 0.8,
         }}
-        className="titleLogo"
-      >
-        Cine<span>Swipe</span>
-      </motion.h1>
+        src={Burger}
+        style={{width:' 50%'}}
+      />
+      <motion.h1 className="titleLogo">Eat</motion.h1>
 
       <div className="content">
         {currentRoom === null ? (

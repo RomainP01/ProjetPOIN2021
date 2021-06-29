@@ -1,4 +1,4 @@
-package io.ionic.CineSwipe;
+package io.ionic.Eat;
 
 import com.getcapacitor.BridgeActivity;
 

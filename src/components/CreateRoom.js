@@ -35,13 +35,13 @@ const CreateRoom = ({ currentRoom, setCurrentRoom }) => {
     <div className="CreateRoom">
       <div className="astuce">
         <motion.h3 variants={titleAnim} initial="hidden" animate="show">
-          Host a party and share the code with your friend{' '}
+          Crée le salon que ton ami pourra rejoindre ! {' '}
         </motion.h3>
       </div>
 
       <div className="buttons">
         <button className="button" onClick={() => handleRoomChange(makeid(5))}>
-          Host
+          Crée
         </button>
       </div>
     </div>
